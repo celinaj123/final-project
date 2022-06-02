@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/jquery.validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js">
+    </script>
+    <script src="validate.js"></script>
   </head>
   <body>
  
@@ -155,51 +157,42 @@
     </button>
   </div>
 </div>
+<!---->
 
-<!--FORM-->
-<div class="container-fluid ">
+<div class="container-fluid">
   <h1 class="fw-semibold text-center pb-5 pt-5 px-3 display-6" style="letter-spacing: 3px; font-size: 40px;">Registration Form</h1>
-  <div class="contact-form">
-                <form id="form" action="/" onsubmit="validate()">
-                   
-                    <div class="contact-input d-flex flex-column">
-                        <label for="email">Email  </label>
-                        <input type="text" id="email" name="Email" placeholder="your email" required>
-                    </div>
-
-                    <div class="contact-input d-flex flex-column"> 
-                      <label for="nama">Nama </label>
-                      <input class="text" type="text" id="nama" name="nama" placeholder="your name" required>
-                     
-                  </div>
-                    
-                    <div class="contact-input d-flex flex-column"> 
-                        <label for="phone">Phone </label>
-                        <input name="phone" id="phone" placeholder="phone number" type="number" ></input>
-                      
-                    </div>
-
-                    <div class="contact-input d-flex flex-column"> 
-                      <label for="event">Event </label>
-                      <div class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn" style="padding: 5px 20px">Choose your event</button>
-                        <div id="myDropdown" class="dropdown-content">
-                          <a href="#ob">Online webinar</a>
-                          <a href="#tw">Technology Workshop</a>
-                         
-                        </div>
-                      </div>
-                  </div>
-
-                    <div class="contact-button d-flex justify-content-center">
-                        <button class="button txt" type="submit" style="border: none; border-radius: 10px;padding: 10px 20px; margin-top: 15px;">Submit</button>
-                    </div>
-                   
-                </form>
-            </div>
+<div class="wrapper">
+  <div id="error_message">
+     
+  </div>
+  <form action="submit" id="myform" onsubmit = "return validate();">
+    <div class="input_field">
+      <label for="email">Email  </label>
+      <input type="text" placeholder="your email" id="email" required>
+  </div>
+    <div class="input_field">
+      <label for="nama">Name</label>
+        <input type="text"  id="name" required minlength="3">
+    </div>
+    <div class="input_field">
+      <label for="phone">Phone </label>
+        <input type="text" id="phone" required>
+    </div>
+    <div class="input_field d-flex flex-column">
+      <label for="event">Event </label>
+      <select name="event" id="eventt">
+        <option value="0">Choose your event</option>
+        <option value="1">Online Webinar</option>
+        <option value="2">Technology Workshop</option>
+      </select>
+    </div>
+    <br>
+    <div class="btn d-flex justify-content-center">
+        <input type="submit">
+    </div>
+  </form>
 </div>
-
-<!--end of FORM-->
+</div>
 
 <footer style="background-color: #f47c7c; margin-top: 50px;">
   <div class="container">
@@ -258,9 +251,7 @@
     
     <!-- end gambar logo-->
       
-          
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-        <script src="validasi.js"></script>
-      
+    <script src="database.js"></script>
+
         </body>
       </html>
